@@ -1,6 +1,7 @@
 package com.example.orderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,24 +17,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    // helper function for display().
-    // Calls async function display().
-    public void submitOrder(View view) {
-        TextView quantityTextView = (TextView)findViewById(R.id.quantity_text_view);
+    // Increment Helper function
+    private int addCoffee() {
+        return getCoffeeQuantity() + 1;
+    }
 
-        // Gets the current quantity.
-        int count = Integer.parseInt(quantityTextView.getText().toString()) + 1;
-        display(count);
+    // Decrement Helper function
+    private int removeCoffee() {
+        int count = getCoffeeQuantity();
+        return count > 0 ? count - 1 : 0;
+    }
 
+    // Gets the current quantity.
+    private int getCoffeeQuantity() {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        int count = Integer.parseInt(quantityTextView.getText().toString());
+        return count;
+    }
+
+    // Increments and sets quantity
+    public void incrementCoffee(View view) {
+        display(addCoffee());
+    }
+
+    // Decrements and sets quantity
+    public void decrementCoffee(View view) {
+        display(removeCoffee());
+    }
+
+    // Helper Function: Calculate Price
+    public void calcPrice(View view) {
+        int count = getCoffeeQuantity();
         // Display Coffee Price
         displayPrice(count * 5);
     }
 
-    // Displays quantity after clicking button
+    // Helper Function: Displays quantity after clicking button
     private void display(int number) {
 
         // Looks for the view we want to alter; our button view.
-        TextView quantityTextView = (TextView)findViewById(
+        TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
 
         // Alters the text attribute of our button view
@@ -42,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Calculate Coffee Price
     private void displayPrice(int number) {
-        TextView priceTextView = (TextView)findViewById(R.id.price_text_view);
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 }

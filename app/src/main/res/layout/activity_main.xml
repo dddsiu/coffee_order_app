@@ -22,12 +22,12 @@
             android:textSize="16sp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="16dp"
-            android:text="+"
-            android:onClick="increment"/>
+            android:onClick="incrementCoffee"
+            android:text="+" />
 
         <TextView
             android:id="@+id/quantity_text_view"
@@ -40,12 +40,12 @@
             android:textSize="16sp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="16dp"
-            android:text="-"
-            android:onClick="decrement"/>
+            android:onClick="decrementCoffee"
+            android:text="-" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:onClick="submitOrder"
+            android:onClick="calcPrice"
             android:text="ORDER"
             android:textSize="16sp" />
     </LinearLayout>
