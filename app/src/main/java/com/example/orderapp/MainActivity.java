@@ -71,3 +71,4 @@ public class MainActivity extends AppCompatActivity {
 }
 
 // Logcat is used to debug logic errors that happen on the phone/emulator.
+// To learn more about debugging, google "debugging android studio" -> has more tips
