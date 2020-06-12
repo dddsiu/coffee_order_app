@@ -2,7 +2,10 @@ package com.example.orderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import android.os.Bundle;
@@ -66,7 +69,16 @@ public class MainActivity extends AppCompatActivity {
     // Calculate Coffee Price
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        EditText name = (EditText)findViewById(R.id.inputName);
+        String customerName = name.getText().toString();
+        priceTextView.setText(customerName + ": " + NumberFormat.getCurrencyInstance().format(number));
+
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
     }
 }
 
